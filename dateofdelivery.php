@@ -50,7 +50,7 @@ class DateOfDelivery extends Module
 	public function install()
 	{	
 		if (!parent::install()
-			|| !$this->registerHook('beforeCarrier')
+			|| !$this->registerHook('displayBeforeCarrier')//Updated the hook name from beforeCarrier to displayBeforeCarrier due to hook name chaned since 1.5			
 			|| !$this->registerHook('orderDetailDisplayed')
 			|| !$this->registerHook('actionCarrierUpdate')
 			||!$this->registerHook('displayPDFInvoice'))
@@ -112,7 +112,7 @@ class DateOfDelivery extends Module
 		Db::getInstance()->execute('UPDATE `'._DB_PREFIX_.'dateofdelivery_carrier_rule` SET `id_carrier` = '.(int)$new_carrier->id.' WHERE `id_carrier` = '.(int)$params['id_carrier']);
 	}
 	
-	public function hookBeforeCarrier($params)
+	public function hookDisplayBeforeCarrier($params) // Updated the function name from hookBeforeCarrier to hookDisplayBeforeCarrier due to hook name chaned since 1.5
 	{
 		if (!isset($params['delivery_option_list']) || !count($params['delivery_option_list']))
 			return false;
