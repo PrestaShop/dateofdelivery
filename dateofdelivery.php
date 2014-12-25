@@ -141,7 +141,6 @@ class DateOfDelivery extends Module
 							{
 								if ( (StockAvailable::getQuantityAvailableByProduct($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null), (int)$this->context->shop->id) - $product['cart_quantity']) < 0)
 									$oos = true;
-								// END suggestion
 
 								$available_date = Product::getAvailableDate($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null), (int)$this->context->shop->id);
 
