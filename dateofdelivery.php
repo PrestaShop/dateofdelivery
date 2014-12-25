@@ -139,8 +139,19 @@ class DateOfDelivery extends Module
 						if (isset($package['product_list']) && is_array($package['product_list']))
 							foreach ($package['product_list'] as $product)
 							{
-								if (StockAvailable::getQuantityAvailableByProduct($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null), (int)$this->context->shop->id) <= 0)
+								// BEGIN Suggestion:
+								// I dont know exactly how, but this should be sensitive to how many items customer have in basket
+								// maybe something like this can illustrate what I mean - but I dont think it wouldnt work like this, 
+								// partly because its not updated dynamically as customer change qty in cart
+								// but to clarify what I mean:
+								// how many is in cart at this moment?
+								$qty_in_cart = get_qty_in_cart($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null));
+								// how many is in stock at this moment?
+								$current_qty_in_stock = StockAvailable::getQuantityAvailableByProduct($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null), (int)$this->context->shop->id);
+								// how does stock look if we consume qty in cart? is it below 0? If it is, we gotta expect extra delay on delivery.
+								if ( ($current_qty_in_stock-$qty_in_cart) < 0)
 									$oos = true;
+								// END suggestion
 
 								$available_date = Product::getAvailableDate($product['id_product'], ($product['id_product_attribute'] ? (int)$product['id_product_attribute'] : null), (int)$this->context->shop->id);
 
