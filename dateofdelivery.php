@@ -413,7 +413,7 @@ class DateOfDelivery extends Module
 		if (empty($carrier_rule))
 			return false;
 
-		if ($date != null && Validate::isDate($date) && strtotime($date) > time())
+		if ($date != null && Validate::isDate($date) && strtotime($date) < time())
 			$date_now = strtotime($date);
 		else
 			$date_now = time(); // Date on timestamp format
