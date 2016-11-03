@@ -177,7 +177,7 @@ class DateOfDelivery extends Module
 				$oos = true;
 
 		$dates_delivery = array();
-		$dates_delivery = $this->_getDatesOfDelivery((int)($params['order']->id_carrier), $oos, $params['order']->date_add);
+		$dates_delivery = $this->_getDatesOfDelivery((int)($params['order']->id_carrier), $oos, $params['order']->date_add, true);
 
 		if (!is_array($dates_delivery) || !count($dates_delivery))
 			return;
@@ -209,7 +209,7 @@ class DateOfDelivery extends Module
 
 		$id_carrier = (int)OrderInvoice::getCarrierId($order_invoice->id);
 		$return = '';
-		if (($dates_delivery = $this->_getDatesOfDelivery($id_carrier, $oos, $order_invoice->date_add)) && isset($dates_delivery[0][0]) && isset($dates_delivery[1][0]))
+		if (($dates_delivery = $this->_getDatesOfDelivery($id_carrier, $oos, $order_invoice->date_add, true)) && isset($dates_delivery[0][0]) && isset($dates_delivery[1][0]))
 			$return = sprintf($this->l('Approximate date of delivery is between %1$s and %2$s'), $dates_delivery[0][0], $dates_delivery[1][0]);
 
 		return $return;
@@ -405,7 +405,7 @@ class DateOfDelivery extends Module
 	 *
 	 * @return array|bool returns the min & max delivery date
 	 */
-	protected function _getDatesOfDelivery($id_carrier, $product_oos = false, $date = null)
+	protected function _getDatesOfDelivery($id_carrier, $product_oos = false, $date = null, $is_order = false)
 	{
 		if (!(int)$id_carrier)
 			return false;
@@ -413,7 +413,9 @@ class DateOfDelivery extends Module
 		if (empty($carrier_rule))
 			return false;
 
-		if ($date != null && Validate::isDate($date) && strtotime($date) > time())
+		if($date != null && Validate::isDate($date) && $is_order)
+			$date_now = strtotime($date);
+		else if ($date != null && Validate::isDate($date) && strtotime($date) > time())
 			$date_now = strtotime($date);
 		else
 			$date_now = time(); // Date on timestamp format
