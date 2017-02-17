@@ -507,7 +507,7 @@ class DateOfDelivery extends Module
 		$fields_form = array(
 			'form' => array(
 				'legend' => array(
-					'title' => $this->trans('Settings', array(), 'Modules.Dateofdelivery.Admin'),
+					'title' => $this->trans('Settings', array(), 'Admin.Global'),
 					'icon' => 'icon-cogs'
 				),
 				'input' => array(
@@ -552,7 +552,7 @@ class DateOfDelivery extends Module
 						, array(), 'Modules.Dateofdelivery.Admin'),
 				),
 			'submit' => array(
-				'title' => $this->trans('Save', array(), 'Modules.Dateofdelivery.Admin'),
+				'title' => $this->trans('Save', array(), 'Admin.Actions'),
 				'class' => 'btn btn-default pull-right')
 			),
 		);
@@ -588,7 +588,7 @@ class DateOfDelivery extends Module
 		$fields_form = array(
 			'form' => array(
 				'legend' => array(
-					'title' => $this->trans('Settings', array(), 'Modules.Dateofdelivery.Admin'),
+					'title' => $this->trans('Settings', array(), 'Admin.Global'),
 					'icon' => 'icon-cogs'
 				),
 				'input' => array(
@@ -637,7 +637,7 @@ class DateOfDelivery extends Module
 					)
 				),
 			'submit' => array(
-				'title' => $this->trans('Save', array(), 'Modules.Dateofdelivery.Admin'),
+				'title' => $this->trans('Save', array(), 'Admin.Actions'),
 				'class' => 'btn btn-default pull-right',
 				'name' => 'submitCarrierRule',
 				)
