@@ -476,8 +476,8 @@ class DateOfDelivery extends Module
 		{
 			if ($elmt == 'l' || $elmt == 'F')
 			{
-				$date_minimal_string .= $this->trans(date($elmt, $date_minimal_time), array(), 'Modules.Dateofdelivery');
-				$date_maximal_string .= $this->trans(date($elmt, $date_maximal_time), array(), 'Modules.Dateofdelivery');
+				$date_minimal_string .= $this->l(date($elmt, $date_minimal_time));
+				$date_maximal_string .= $this->l(date($elmt, $date_maximal_time));
 			}
 			elseif (preg_match('/[a-z]/Ui', $elmt))
 			{
@@ -610,7 +610,7 @@ class DateOfDelivery extends Module
 						),
 					array(
 						'type' => 'text',
-						'label' => $this->trans('', array(), 'Modules.Dateofdelivery.Admin'),
+						'label' => '',
 						'name' => 'maximal_time',
 						'suffix' => $this->trans('day(s)', array(), 'Modules.Dateofdelivery.Admin'),
 						),
