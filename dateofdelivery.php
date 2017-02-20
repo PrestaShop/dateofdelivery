@@ -44,6 +44,7 @@ class DateOfDelivery extends Module
 
 		$this->displayName = $this->l('Date of delivery');
 		$this->description = $this->l('Displays an approximate date of delivery');
+		$this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
 	}
 
 	public function install()
