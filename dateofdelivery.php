@@ -43,7 +43,7 @@ class DateOfDelivery extends Module
 		parent::__construct();
 
 		$this->displayName = $this->trans('Date of delivery', array(), 'Modules.Dateofdelivery.Admin');
-		$this->description = $this->trans('72% of customers are satisfied when they can see expected delivery dates of their purchases, let’s satisfy yours up to 100%!', array(), 'Modules.Dateofdelivery.Admin');
+		$this->description = $this->trans('72% of customers are satisfied when they can see expected delivery dates of their purchases, let's satisfy yours up to 100%!', array(), 'Modules.Dateofdelivery.Admin');
 		$this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
 	}
 
