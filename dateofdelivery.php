@@ -43,7 +43,7 @@ class DateOfDelivery extends Module
 		parent::__construct();
 
 		$this->displayName = $this->trans('Date of delivery', array(), 'Modules.Dateofdelivery.Admin');
-		$this->description = $this->trans('Displays an approximate date of delivery', array(), 'Modules.Dateofdelivery.Admin');
+		$this->description = $this->trans('72% of customers are satisfied when they can see expected delivery dates of their purchases, let\'s satisfy yours up to 100%!', array(), 'Modules.Dateofdelivery.Admin');
 		$this->ps_versions_compliancy = array('min' => '1.7.1.0', 'max' => _PS_VERSION_);
 	}
 
@@ -448,26 +448,26 @@ class DateOfDelivery extends Module
 
 		// Do not remove this commentary, it's usefull to allow translations of months and days in the translator tool
 
-		$this->l('Sunday');
-		$this->l('Monday');
-		$this->l('Tuesday');
-		$this->l('Wednesday');
-		$this->l('Thursday');
-		$this->l('Friday');
-		$this->l('Saturday');
+		$this->trans('Sunday', array(), 'Admin.Global');
+		$this->trans('Monday', array(), 'Admin.Global');
+		$this->trans('Tuesday', array(), 'Admin.Global');
+		$this->trans('Wednesday', array(), 'Admin.Global');
+		$this->trans('Thursday', array(), 'Admin.Global');
+		$this->trans('Friday', array(), 'Admin.Global');
+		$this->trans('Saturday', array(), 'Admin.Global');
 
-		$this->l('January');
-		$this->l('February');
-		$this->l('March');
-		$this->l('April');
-		$this->l('May');
-		$this->l('June');
-		$this->l('July');
-		$this->l('August');
-		$this->l('September');
-		$this->l('October');
-		$this->l('November');
-		$this->l('December');
+		$this->trans('January', array(), 'Admin.Global');
+		$this->trans('February', array(), 'Admin.Global');
+		$this->trans('March', array(), 'Admin.Global');
+		$this->trans('April', array(), 'Admin.Global');
+		$this->trans('May', array(), 'Admin.Global');
+		$this->trans('June', array(), 'Admin.Global');
+		$this->trans('July', array(), 'Admin.Global');
+		$this->trans('August', array(), 'Admin.Global');
+		$this->trans('September', array(), 'Admin.Global');
+		$this->trans('October', array(), 'Admin.Global');
+		$this->trans('November', array(), 'Admin.Global');
+		$this->trans('December', array(), 'Admin.Global');
 		*/
 
 		$date_minimal_string = '';
